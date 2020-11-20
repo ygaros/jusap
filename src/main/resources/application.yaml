@@ -1,0 +1,48 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.Mysql
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+#    driver-class-name: org.postgresql.Driver
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: javamailsenderclasskuba@gmail.com
+    password: ${FOO_BAR}
+    protocol: smtps
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+file:
+  root:
+    path: storage
+security:
+  jwt:
+    token:
+      secret-key: ${JWT_SECRET}
+      accessTokenCookieName: accessToken
+      refreshTokenCookieName: refreshToken
+      expiration: ${JWT_EXP}
+      refresh:
+        expiration: ${JWT_REF_EXP}
+logging:
+  level:
+    org.springframework.data.couchbase.repository.query: DEBUG
+    web: DEBUG
+custom:
+  default:
+    page:
+      size: 20
